@@ -2,7 +2,12 @@
 
 namespace AppBundle\Form;
 
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,9 +23,16 @@ class ReviewType extends AbstractType
     {
         $builder
             ->add('text', TextareaType::class, array('attr' => array('maxlength' => 250, 'label' => 'Description')))
-            ->add('publicationDate')
-            ->add('note')
-            ->add('userRated')
+            ->add('publicationDate',DateType::class, array('data'=>new\DateTime('now') ))
+            ->add('note' ,IntegerType::class, array('attr'=>array('min'=>5, 'lable' => 'Note')))
+            ->add('agreeTerms',CheckboxType::class, array('mapped'=>false))
+            ->add('userRated',EntityType::class,array(
+                'class'=>'AppBundle\Entity\User',
+                'query_builder'=>function(EntityRepository $er){
+                return $er->createQueryBuilder('u')
+                    ->orderBy('u.lastName','ASC');
+            },
+            'choice_label' => 'lastName'))
             ->add('reviewAuthor');
     }
     /**
