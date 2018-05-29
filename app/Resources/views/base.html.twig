@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('build/style.css') }}">
+
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% block navbar %}
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <ul class="dropdown-menu">
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="{{ path('flight_index') }}">Voir les avions</a>
+                </li>
+                <li>
+                    <a href="{{ path('reservation_index') }}">voir les réservation</a>
+                </li>
+                <li>
+                    <a href="{{ path('planemodel_index') }}">Voir les vols</a>
+                </li>
+                <li>
+                    <a href="{{ path('site_index') }}">Voir les terrains</a>
+                </li>
+                <li>
+                    <a href="{{ path('review_index') }}">Voir tous les avis utilisateur</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock %}
+{% block body %}{% endblock %}
+<script src="{{ asset('build/app.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
 </html>

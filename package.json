@@ -1,0 +1,32 @@
+{
+  "name": "flyaround-symfony",
+  "version": "1.0.0",
+  "description": "Flyaround-Symfony =================",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orkall/Flyaround-Symfony.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Orkall/Flyaround-Symfony/issues"
+  },
+  "homepage": "https://github.com/Orkall/Flyaround-Symfony#readme",
+  "dependencies": {
+    "@symfony/webpack-encore": "^0.20.1",
+    "boostrap": "^2.0.0",
+    "bootstrap": "^4.1.1",
+    "bootstrap-sass": "^3.3.7",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1"
+  },
+  "devDependencies": {}
+}
