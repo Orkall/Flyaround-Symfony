@@ -69,7 +69,7 @@ class FlightInfo
     {
         $t = (($distance)/($speed));
         $m = $t - floor($t);
-        $min = (30*$m)/0.50;
+        $min = (60*$m)/1;
         $duration = floor($t) . " hours ". round($min) . " minutes";
         return $duration;
     }
